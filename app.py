@@ -1,5 +1,9 @@
 import streamlit as st
-from src.helper import voice_input, llm_model, text_to_speech
+from src.helper import voice_input, llm_model_object, text_to_speech
+from logger import logging 
+from exception import CustomException  
+
+
 
 def main():
     st.title("Multilingual AI Assistant")
@@ -8,14 +12,16 @@ def main():
 
         with st.spinner("Listening..."):
             try:
-                text = voice_input()  # Assuming voice_input returns the spoken text
+                text = voice_input()  
                 if not text:
                     st.error("No input received. Please try again.")
+                    logging.info("No input received from voice input.")
                     return
 
-                response = llm_model(text)  # Assuming llm_model processes the text and generates a response
+                response = llm_model_object(text)  # Assuming llm_model processes the text and generates a response
                 if not response:
                     st.error("No response generated. Please try again.")
+                    logging.info("No response generated from model.")
                     return
 
                 # Convert the response to speech
@@ -36,9 +42,17 @@ def main():
                     file_name="speech.mp3",
                     mime="audio/mp3"
                 )
+                logging.info("Successfully generated and displayed the response with audio.")
 
             except Exception as e:
+                # Log the exception with traceback
+                logging.info(f"An error occurred: {e}")
                 st.error(f"An error occurred: {e}")
+                raise CustomException(f"Error in main function: {e}")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except CustomException as ce:
+        logging.info(f"Critical Error: {ce}")
+        st.error(f"A critical error occurred: {ce}")
