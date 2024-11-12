@@ -5,4 +5,5 @@ gTTS
 google-generativeai
 python-dotenv
 streamlit
+from-root
 -e .
