@@ -27,6 +27,9 @@ Let's get your environment set up and ready to go! Open your terminal and run:
 
 ```bash
 conda create --name multilingual-assistant python=3.9
+```
+Activate the env:
+```bash
 conda activate multilingual-assistant
 ```
 
