@@ -1,5 +1,6 @@
 # 🚀 **Multi-lingual AI Assistant with gTTS and Gemini Pro** 🤖🌍
-Caution: This is my mini_project here
+* Caution: This is my mini_project here
+
 Welcome to the **Multi-lingual AI Assistant**—the future of voice-driven interaction powered by **Gemini Pro** and **gTTS**! This AI assistant brings the power of Google’s cutting-edge models to your fingertips, enabling **seamless, real-time voice interactions** across multiple languages. Speak your mind, and let the AI do the rest! 🌟
 
 Whether you want to ask a question, get a recommendation, or just chat, this assistant is ready to assist you in **multiple languages**. It takes **voice input**, processes it using **Gemini Pro**, and responds with **text-to-speech** using **gTTS**. 🎧✨ Plus, you can **download the speech output** for offline access and share it anytime!
